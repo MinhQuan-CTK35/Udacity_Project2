@@ -39,7 +39,7 @@ Resources:
       EnableDnsHostnames: true
       Tags:
         - Key: Name
-          Value: !Sub "${EnvironmentName}-VPCIDR"
+          Value: !Sub "${EnvironmentName}-VpcCIDR"
   
   InternetGateway:
     Type: AWS::EC2::InternetGateway
@@ -204,7 +204,7 @@ Resources:
 
 Outputs:
   VPC:
-    Description: VPC
+    Description: The VPC created for this project
     Value: !Ref VPC
     Export:
       Name: !Sub "${EnvironmentName}-VpcCIDR"

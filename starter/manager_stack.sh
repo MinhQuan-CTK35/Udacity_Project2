@@ -6,7 +6,7 @@ case $ACTION in
     --stack-name $2 \
     --template-body file://$3 \
     --parameters file://$4 \
-    --capabilities "CAPABILITY_IAM" "CAPABILITY_NAMED_IAM" \
+    --capabilities "CAPABILITY_NAMED_IAM" \
     --region=$5
     ;;
 
@@ -15,7 +15,7 @@ case $ACTION in
     --stack-name $2 \
     --template-body file://$3 \
     --parameters file://$4 \
-    --capabilities "CAPABILITY_IAM" "CAPABILITY_NAMED_IAM"
+    --capabilities "CAPABILITY_NAMED_IAM"
     ;;
 
   delete)

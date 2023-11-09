@@ -44,12 +44,14 @@ Resources:
       LaunchTemplateName: !Sub "${EnvironmentName}-web-servers"
       LaunchTemplateData:
         UserData:
-          Fn::Base64: |
+          Fn::Base64: !Sub |
             #!/bin/bash
-            apt-get update -y
-            sudo apt-get install nginx -y
-            service nginx start
-        ImageId: ami-0dbc3d7bc646e8516
+            sudo apt-get update -y
+            sudo apt-get install apache2 -y
+            sudo systemctl start apache2.service
+            sudo cd /var/www/html
+            sudo echo "it works! Udagram, Udacity" > index.html
+        ImageId: ami-02675d30b814d1daa
         SecurityGroupIds:
           - !GetAtt LoadBalancerSecurityGroup.GroupId
         InstanceType: t2.micro
